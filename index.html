@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieCloudebd – Latest Movies</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- TOP BANNER AD -->
+  <div class="ad-banner top-banner">
+    <a href="https://ferocitycandour.com/h1yfigmbuq?key=0c9b23c12764e463d8952a3fb37adc74" target="_blank" rel="noopener">
+      <img src="https://placehold.co/728x90/ff4500/ffffff?text=🎬+ADVERTISEMENT+–+Click+Here" alt="Ad Banner" class="ad-img-wide"/>
+      <img src="https://placehold.co/320x50/ff4500/ffffff?text=🎬+AD+–+Click+Here" alt="Ad Banner" class="ad-img-mobile"/>
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        🎬 <span>MovieCloud</span><span class="accent">bd</span>
+      </div>
+      <nav>
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#movies" class="nav-link">Movies</a>
+        <a href="#genres" class="nav-link">Genres</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#genres">Genres</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tag">🔥 Trending Now</p>
+      <h1>Latest Movies<br/><span class="accent">Free Download</span></h1>
+      <p class="hero-sub">HD Quality · Dual Audio · Fast Links</p>
+      <a href="#movies" class="hero-btn">Browse Movies</a>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <!-- SEARCH + FILTER -->
+  <section class="search-section">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search movies..." oninput="filterMovies()"/>
+    </div>
+    <div class="genre-filters" id="genres">
+      <button class="filter-btn active" onclick="setGenre('all', this)">All</button>
+      <button class="filter-btn" onclick="setGenre('action', this)">Action</button>
+      <button class="filter-btn" onclick="setGenre('drama', this)">Drama</button>
+      <button class="filter-btn" onclick="setGenre('comedy', this)">Comedy</button>
+      <button class="filter-btn" onclick="setGenre('thriller', this)">Thriller</button>
+      <button class="filter-btn" onclick="setGenre('sci-fi', this)">Sci-Fi</button>
+      <button class="filter-btn" onclick="setGenre('animation', this)">Animation</button>
+    </div>
+  </section>
+
+  <!-- MIDDLE BANNER AD -->
+  <div class="ad-banner mid-banner">
+    <a href="https://ferocitycandour.com/h1yfigmbuq?key=0c9b23c12764e463d8952a3fb37adc74" target="_blank" rel="noopener">
+      <img src="https://placehold.co/970x90/1a1a2e/ff4500?text=🍿+SPONSOR+–+Click+to+Visit" alt="Ad" class="ad-img-wide"/>
+      <img src="https://placehold.co/320x50/1a1a2e/ff4500?text=🍿+SPONSOR+–+Click" alt="Ad" class="ad-img-mobile"/>
+    </a>
+  </div>
+
+  <!-- MOVIES GRID -->
+  <section class="movies-section" id="movies">
+    <h2 class="section-title">🎬 Latest Movies</h2>
+    <div class="movies-grid" id="moviesGrid"></div>
+    <div class="no-results" id="noResults" style="display:none;">No movies found.</div>
+  </section>
+
+  <!-- BOTTOM BANNER AD -->
+  <div class="ad-banner bottom-banner">
+    <a href="https://ferocitycandour.com/h1yfigmbuq?key=0c9b23c12764e463d8952a3fb37adc74" target="_blank" rel="noopener">
+      <img src="https://placehold.co/728x90/ff4500/ffffff?text=🎬+DOWNLOAD+MORE+–+Click+Here" alt="Ad" class="ad-img-wide"/>
+      <img src="https://placehold.co/320x50/ff4500/ffffff?text=🎬+DOWNLOAD+MORE" alt="Ad" class="ad-img-mobile"/>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-logo">🎬 <span>MovieCloud</span><span class="accent">bd</span></div>
+      <p class="footer-desc">Your #1 source for the latest movies. Fast links, HD quality, always free.</p>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">DMCA</a>
+        <a href="#">Contact</a>
+      </div>
+      <p class="footer-copy">© 2025 MovieCloudebd. All rights reserved. For entertainment purposes only.</p>
+    </div>
+  </footer>
+
+  <!-- DOWNLOAD MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-poster">
+        <img id="modalPoster" src="" alt=""/>
+      </div>
+      <div class="modal-info">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-meta">
+          <span id="modalYear"></span>
+          <span id="modalGenre"></span>
+          <span id="modalRating"><i class="fas fa-star"></i> <span id="modalRatingVal"></span></span>
+        </div>
+        <p id="modalDesc"></p>
+        <div class="modal-quality">
+          <span class="quality-badge">HD 720p</span>
+          <span class="quality-badge">1080p</span>
+          <span class="quality-badge">Dual Audio</span>
+        </div>
+        <a id="modalDownloadBtn" href="https://ferocitycandour.com/h1yfigmbuq?key=0c9b23c12764e463d8952a3fb37adc74" target="_blank" rel="noopener" class="download-btn">
+          <i class="fas fa-download"></i> Download Now
+        </a>
+        <p class="modal-note">⚡ Fast server · HD Quality · Free</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
