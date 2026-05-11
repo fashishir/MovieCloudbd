@@ -22,18 +22,7 @@ MovieCloudebd/
 └── README.md        # This file
 ```
 
-## 💰 How to Add Your Adsterra Link
 
-1. Open `index.html`
-2. Find all instances of `YOUR_ADSTERRA_SMART_LINK_HERE`
-3. Replace each one with your actual Adsterra smart link URL
-4. Also open `app.js` and replace the same placeholder if present
-
-There are **4 places** total:
-- Top banner ad
-- Middle banner ad
-- Bottom banner ad
-- Download button in the modal
 
 ## 🌐 Deploy to GitHub Pages
 
