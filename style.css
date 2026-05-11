@@ -422,28 +422,37 @@ nav { display: flex; gap: 24px; }
   font-weight: 700;
   letter-spacing: 0.5px;
 }
+.download-buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 8px;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: #fff;
-  padding: 14px 30px;
+  padding: 12px 20px;
   border-radius: 50px;
   font-weight: 900;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: all 0.25s;
   box-shadow: 0 4px 20px rgba(255,69,0,0.4);
-  width: 100%;
-  justify-content: center;
-  margin-bottom: 10px;
 }
 .download-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(255,69,0,0.55);
+}
+@media (max-width: 600px) {
+  .download-buttons-container {
+    grid-template-columns: 1fr;
+  }
 }
 .modal-note {
   text-align: center;
